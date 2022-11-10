@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="스마트 공장" />
+    <title>유해가스 센서 모니터링 시스템</title>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <link href="css/common.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="css/layout.css" media="all" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+
+    <link href="dist/css/tabulator.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="dist/js/tabulator.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/view.js"></script>
+
+    <script src="js/Chart.min.js"></script>
+
+</head>
+
+<body>
+    <header id="header">
+        <h1><span>유해가스 센서</span> 모니터링 시스템</h1>
+        <div class="user">
+            <span>ADMIN</span>
+            <button><img src="img/userIcon.png"></button>
+        </div>
+    </header>
+    <div class="container">
+        <!-- <aside id="leftGnb">
+
+            <div class="sideGnb">
+                <h2><span>스마트 공장</span>안전 및 환경<br>모니터링 시스템</h2>
+                <button class="close"><img src="img/closeBtn.png" alt="닫기"></button>
+
+                <ul>
+                    <li>
+                        <a href="main.html">대시보드</a>
+                        <ul>
+                            <li><a href="sub2.html">ㆍPCR</a></li>
+                            <li><a href="sub2-1.html">ㆍTBR</a></li>
+                            <li><a href="sub2-2.html">ㆍ가류기</a></li>
+                        </ul>
+                    </li>
+                    <li class="on">
+                        <a href="sub2.html">이벤트조회</a>
+                        <ul>
+                            <li><a href="sub2.html">ㆍPCR</a></li>
+                            <li><a href="sub2-1.html">ㆍTBR</a></li>
+                            <li><a href="sub2-2.html">ㆍ가류기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="sub3.html">시스템 모니터링</a>
+                        <ul>
+                            <li><a href="sub3.html">ㆍDB서버</a></li>
+                            <li><a href="sub3-1.html">ㆍAI서버</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside> -->
+        <section id="rightCon">
+            <div class="tabGnb">
+                <ul>
+                    <li><a href="main.html">현장 모니터링 현황</a></li>
+                    <li><a href="sub2.html" class="on">센서 통계</a></li>
+                    <li><a href="sub3.html">시스템 모니터링</a></li>
+                </ul>
+                <!-- <h2>수집서버 IP : 192.168.0.241</h2> -->
+                <h2>현재시간 :
+                    <div id="current_date"></div>
+                </h2>
+
+            </div>
+            <section class="contents">
+                <div class="left3">
+                    <article id="con401">
+                        <h2>PLC01 통계</h2>
+                        <ul>
+                            <img src="img/circle_01.png">
+                        </ul>
+                        <h2>PLC02 통계</h2>
+                        <ul>
+                            <img src="img/circle_01.png">
+                        </ul>
+                        <h2>PLC03 통계</h2>
+                        <ul>
+                            <img src="img/circle_01.png">
+                        </ul>
+                        <h2>Wi-Sun 통계</h2>
+                        <ul>
+                            <img src="img/circle_01.png">
+                        </ul>
+                    </article>
+                </div>
+                <div class="middle">
+                    <article id="con403">
+                        <h2>센서 배치도</h2>
+                        <img src="img/배치도.png">
+                    </article>
+                </div>
+                <div class="right3">
+                    <article id="con402">
+                        <h2>연도별 통계</h2>
+                        <ul>
+                            <img src="img/graph_01.png">
+                        </ul>
+                        <h2>월별 통계</h2>
+                        <ul>
+                            <img src="img/graph_02.png">
+                        </ul>
+                        <h2>요일별 통계</h2>
+                        <ul>
+                            <img src="img/graph_03.png">
+                        </ul>
+                        <h2>시간별 통계</h2>
+                        <ul>
+                            <img src="img/graph_04.png">
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </div>
+    <script>
+        var Target = document.getElementById("current_date");
+
+        function clock() {
+            var time = new Date();
+            var year = time.getFullYear();
+            var month = time.getMonth();
+            var date = time.getDate();
+            var day = time.getDay();
+            var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+
+            Target.innerText =
+                `${year}년 ${month + 1}월 ${date}일 ${week[day]}요일 ` +
+                `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+        }
+        clock();
+        setInterval(clock, 1000);
+
+        $(document).ready(() => {
+            $.ajax({
+                url: "/query",
+                async: false,
+                method: "GET"
+            }).done(function (text) {
+                if (text == null || text == "" || !text.result || text.result.length <= 0 || text
+                    .result[0].machineid == 0 || text.result[0].machineid == 1)
+                    return;
+
+                var event_id = text.result[0].event_id;
+
+                if (Number(text.result[0].sensorid) == 1) {
+                    var sensorid = "Photo Sensor";
+                } else {
+                    var sensorid = "Laser Scanner";
+                }
+
+                if (Number(text.result[0].machineid) == 0) { //추후에 데이터 맞춘 다음 1로 수정하기
+                    var machineid = "가류기";
+                } else if (Number(text.result[0].machineid) == 2) {
+                    var machineid = "PCR";
+                } else {
+                    var machineid = "TBR";
+                }
+
+                var event_time = text.result[0].event_time;
+
+                var event_status = text.result[0].event_status;
+                if (Number(text.result[0].event_status) == 1) {
+                    var event_status = "위험";
+                }
+
+                var action = "기동중지";
+
+                $('#tbody').append("<dl><dt>" + "<img src = img/pcr_icon.png>" + machineid +
+                    "</dt><dd><span class = numBtn dangerOn>" + "3" + "</span>" +
+                    "<p class = type3>" + sensorid +
+                    "</span></dd><dd>" +
+                    event_time + "</dd><dd><span class = dangerRemarks>" + event_status +
+                    "</span></dd><dd>" +
+                    "<img src = img/action_02.png>" +
+                    "</dd></dl>");
+            });
+        });
+    </script>
+    <script src="js/kchart.js"></script>
+</body>
+
+</html>

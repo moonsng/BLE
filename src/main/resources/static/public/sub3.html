@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="스마트 공장" />
+    <title>유해가스 센서 모니터링 시스템</title>
+
+    <link href="css/common.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="css/layout.css" media="all" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+
+</head>
+
+<body class="graph">
+    <header id="header">
+        <h1><span>유해가스 센서</span> 모니터링 시스템</h1>
+        <div class="user">
+            <span>ADMIN</span>
+            <button><img src="img/userIcon.png"></button>
+        </div>
+    </header>
+    <div class="container">
+        <!-- <aside id="leftGnb">
+            <div class="sideGnb">
+                <h2><span>스마트 공장</span>안전 및 환경<br>모니터링 시스템</h2>
+                <button class="close"><img src="img/closeBtn.png" alt="닫기"></button>
+
+                <ul>
+                    <li>
+                        <a href="main.html">대시보드</a>
+                        <ul>
+                            <li><a href="sub2.html">ㆍPCR</a></li>
+                            <li><a href="sub2-1.html">ㆍTBR</a></li>
+                            <li><a href="sub2-2.html">ㆍ가류기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="sub2.html">이벤트조회</a>
+                        <ul>
+                            <li><a href="sub2.html">ㆍPCR</a></li>
+                            <li><a href="sub2-1.html">ㆍTBR</a></li>
+                            <li><a href="sub2-2.html">ㆍ가류기</a></li>
+                        </ul>
+                    </li>
+                    <li class="on">
+                        <a href="sub3.html">시스템 모니터링</a>
+                        <ul>
+                            <li><a href="sub3.html">ㆍDB서버</a></li>
+                            <li><a href="sub3-1.html">ㆍAI서버</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside> -->
+        <section id="rightCon">
+            <div class="tabGnb">
+                <ul>
+                    <li><a href="main.html">현장 모니터링 현황</a></li>
+                    <li><a href="sub2.html">센서 통계</a></li>
+                    <li><a href="sub3.html" class="on">시스템 모니터링</a></li>
+                </ul>
+                <h2>현재시간 :
+                    <div id="current_date"></div>
+                </h2>
+            </div>
+            <section class="contents2">
+                <div class="top">
+                    <article id="con301">
+                        <ul>
+                            <li>
+                                <h2>상태(Status)</h2>
+                                <div>
+                                    <button></button>
+                                </div>
+                            </li>
+                            <li>
+                                <h2>CPU Usage</h2>
+                                <div class="chartLi">
+                                    <figure>
+                                        <script src="./js/core.js"></script>
+                                        <script src="./js/charts.js"></script>
+                                        <script src="./js/dark.js"></script>
+                                        <script src="./js/animated.js"></script>
+                                        <script src="./js/index.js"></script>
+                                        <div id="chartDd01" class="chartBox"></div>
+                                    </figure>
+
+                                    <dl>
+                                        <dt>5.4%</dt>
+                                        <dd>Processer Load</dd>
+                                    </dl>
+                                </div>
+                            </li>
+                            <li>
+                                <h2>Memory Usage</h2>
+                                <div class="chartLi">
+                                    <figure>
+                                        <div id="chartDd02" class="chartBox"></div>
+                                    </figure>
+
+                                    <dl>
+                                        <dt>7%</dt>
+                                        <dd>Memory Usage</dd>
+                                    </dl>
+                                </div>
+                            </li>
+                            <li>
+                                <h2>DISK Usage</h2>
+                                <div>
+                                    <dl>
+                                        <dt class="colorY">100GB</dt>
+                                        <dd>전체용량</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt class="colorR">23GB</dt>
+                                        <dd>사용량</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt class="colorG">100GB</dt>
+                                        <dd>남은용량</dd>
+                                    </dl>
+                                </div>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="bottom">
+                    <article id="con302">
+                        <h2>디스크 I/O</h2>
+                        <img src="img/graph301.png">
+                    </article>
+                    <article id="con302">
+                        <h2>디스크 지연시간(Latency)</h2>
+                        <img src="img/graph302.png">
+                    </article>
+                    <article id="con302">
+                        <h2>네트워크 트래픽(Traffic)</h2>
+                        <img src="img/graph303.png">
+                    </article>
+                    <article id="con302">
+                        <h2>응용 서비스</h2>
+                        <div class="appService">
+                            <dl>
+                                <dt>VMETRJCARI</dt>
+                                <dd>ALG</dd>
+                                <dd>Application Host Helper Service</dd>
+                                <dd><button class="okBtn"></button></dd>
+                                <dd>Auto</dd>
+                                <dd><button class="runningBtnGr"></button></dd>
+                                <dd>False</dd>
+                            </dl>
+                            <dl>
+                                <dt>VMETRJCARI</dt>
+                                <dd>ALG</dd>
+                                <dd>Application Host Helper Service</dd>
+                                <dd><button class="okBtn"></button></dd>
+                                <dd>Auto</dd>
+                                <dd><button class="runningBtnGr"></button></dd>
+                                <dd>False</dd>
+                            </dl>
+                            <dl>
+                                <dt>VMETRJCARI</dt>
+                                <dd>ALG</dd>
+                                <dd>Application Host Helper Service</dd>
+                                <dd><button class="okBtn"></button></dd>
+                                <dd>Auto</dd>
+                                <dd><button class="runningBtnGr"></button></dd>
+                                <dd>False</dd>
+                            </dl>
+                            <dl>
+                                <dt>VMETRJCARI</dt>
+                                <dd>ALG</dd>
+                                <dd>Application Host Helper Service</dd>
+                                <dd><button class="okBtn"></button></dd>
+                                <dd>Auto</dd>
+                                <dd><button class="runningBtnGr"></button></dd>
+                                <dd>False</dd>
+                            </dl>
+                            <dl>
+                                <dt>VMETRJCARI</dt>
+                                <dd>ALG</dd>
+                                <dd>Application Host Helper Service</dd>
+                                <dd><button class="okBtn"></button></dd>
+                                <dd>Auto</dd>
+                                <dd><button class="runningBtnRd"></button></dd>
+                                <dd>False</dd>
+                            </dl>
+                            <dl>
+                                <dt>VMETRJCARI</dt>
+                                <dd>ALG</dd>
+                                <dd>Application Host Helper Service</dd>
+                                <dd><button class="okBtn"></button></dd>
+                                <dd>Auto</dd>
+                                <dd><button class="runningBtnRd"></button></dd>
+                                <dd>False</dd>
+                            </dl>
+                            <dl>
+                                <dt>VMETRJCARI</dt>
+                                <dd>ALG</dd>
+                                <dd>Application Host Helper Service</dd>
+                                <dd><button class="okBtn"></button></dd>
+                                <dd>Auto</dd>
+                                <dd><button class="runningBtnRd"></button></dd>
+                                <dd>False</dd>
+                            </dl>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </div>
+    <script>
+        var Target = document.getElementById("current_date");
+
+        function clock() {
+            var time = new Date();
+            var year = time.getFullYear();
+            var month = time.getMonth();
+            var date = time.getDate();
+            var day = time.getDay();
+            var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+
+            Target.innerText =
+                `${year}년 ${month + 1}월 ${date}일 ${week[day]}요일 ` +
+                `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+        }
+        clock();
+        setInterval(clock, 1000);
+    </script>
+</body>
+
+</html>

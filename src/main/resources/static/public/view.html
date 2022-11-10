@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="keywords" content="스마트 공장" />
+<title>Mk 모니터링</title>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<link href="css/common.css" media="all" rel="stylesheet" type="text/css" />    
+<link href="css/layout.css" media="all" rel="stylesheet" type="text/css" />    
+<link href="css/view.css" media="all" rel="stylesheet" type="text/css" />    
+
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+
+<link href="dist/css/tabulator.min.css" rel="stylesheet">
+
+<script type="text/javascript" src="dist/js/tabulator.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
+
+</head>
+    
+<body>
+    <section id ="top_section">
+        <div class="top_title">
+            <h2 id="top_left">현장 모니터링 현황</h2>
+        </div>
+        <div class="top_title">
+            <h2 id="top_right">센서 제어 현황</h2>
+        </div>
+    </section>
+    
+    <section id="section_article">
+        <div class="side_box">
+            <div id="title_area">
+                <div class="title_infos">
+                    <!-- 하드코딩 -->
+                    <h2 id="ip_text">수집서버 IP : 192.168.0.241</h2>
+                </div>
+                <div class="title_infos"></div>
+                <div id="cur_date" class="title_infos">날짜</div>
+                <div id="cur_time" class="title_infos">시간</div>
+            </div>
+
+            <div id="map_area">
+                <img src="/img/base.png">
+            </div>
+
+            <div id="chart_area">
+                <div id="chart_info">                    
+                    <div class="chart_title">선택센서</div>
+                    <div class="chart_title">선택G/W</div>
+                    <div class="chart_title">선택센서ID</div>
+                    <div class="chart_title">선택센서이름</div>
+                    <div class="chart_title">감지대상</div>
+                    <div class="chart_title">수신값</div>
+                    <div class="chart_title">수신시간</div>
+                </div>
+                <div id="chart_result">
+                    <canvas id="chart_graph">
+
+                    </canvas>
+                </div>
+            </div>
+
+            <div id="value_area">
+            </div>
+        </div>
+        <div class="side_box">
+            <div id="searching_area">
+                <div>
+                    <h2>게이트웨이:</h2>
+                    <label><input type="radio" name="gateway" value="All"  checked="checked">모두</label>
+                    <label><input type="radio" name="gateway" value="PLC01">PLC01</label>
+                    <label><input type="radio" name="gateway" value="PLC02">PLC02</label>
+                    <label><input type="radio" name="gateway" value="PLC03">PLC03</label>
+                    <label><input type="radio" name="gateway" value="Wi-Sun">Wi-Sun</label>
+                    <label><input id="auto_search" type="checkbox" name="auto_search" checked>자동검색(10초)</label>
+                </div>
+                <div>
+                   <h2>최근센서상태:</h2>
+                   <label><input type="radio" name="state" value="All" checked="checked">모두</label>
+                   <label><input type="radio" name="state" value="Work">정상</label>
+                   <label><input type="radio" name="state" value="Alarm">알람</label>
+                   <label><input type="radio" name="state" value="Other">기타</label>
+                   <button id="btn_search" onclick="search()">검색</button>
+                </div>
+
+                <!-- <div id="date_range">
+                    <h2>From :</h2><input id="s_date" type="date">
+                    <h2>To :</h2><input id="e_date" type="date">
+                </div> -->
+
+                <div id="search_numbers">
+                    <h2 id="sensor_cnt">센서건수 :</h2>
+                    <h2 id="work_cnt">정상건수 :</h2>
+                    <h2 id="error_cnt">에러건수 :</h2>
+                </div>
+            </div>
+            <div id="result_area">
+         
+            </div>
+        </div>
+    </section>
+</body>
+</html>

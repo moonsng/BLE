@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+/* 폰트 */
+
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Noto Sans DemiLight'), local('NotoSans-DemiLight'),
+    url(../fonts/eot/NotoSansKR-DemiLight-Hestia.eot),
+    url(../fonts/eot/NotoSansKR-DemiLight-Hestia.eot?#iefix) format('embedded-opentype'),	
+	url(../fonts/woff2/NotoSansKR-DemiLight-Hestia.woff2) format('woff2'),
+    url(../fonts/woff/NotoSansKR-DemiLight-Hestia.woff) format('woff'),
+    url(../fonts/otf/NotoSansKR-DemiLight-Hestia.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Noto Sans Regular'), local('NotoSans-Regular'),
+    url(../fonts/eot/NotoSansKR-Regular-Hestia.eot),
+    url(../fonts/eot/NotoSansKR-Regular-Hestia.eot?#iefix) format('embedded-opentype'),	
+	url(../fonts/woff2/NotoSansKR-Regular-Hestia.woff2) format('woff2'),
+    url(../fonts/woff/NotoSansKR-Regular-Hestia.woff) format('woff'),
+    url(../fonts/otf/NotoSansKR-Regular-Hestia.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Noto Sans Medium'), local('NotoSans-Medium'),
+    url(../fonts/eot/NotoSansKR-Medium-Hestia.eot),
+    url(../fonts/eot/NotoSansKR-Medium-Hestia.eot?#iefix) format('embedded-opentype'),
+	url(../fonts/woff2/NotoSansKR-Medium-Hestia.woff2) format('woff2'),
+    url(../fonts/woff/NotoSansKR-Medium-Hestia.woff) format('woff'),
+    url(../fonts/otf/NotoSansKR-Medium-Hestia.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Noto Sans Bold'), local('NotoSans-Bold'),
+    url(../fonts/eot/NotoSansKR-Bold-Hestia.eot),
+    url(../fonts/eot/NotoSansKR-Bold-Hestia.eot?#iefix) format('embedded-opentype'),
+	url(../fonts/woff2/NotoSansKR-Bold-Hestia.woff2) format('woff2'),
+    url(../fonts/woff/NotoSansKR-Bold-Hestia.woff) format('woff'),
+    url(../fonts/otf/NotoSansKR-Bold-Hestia.otf) format('opentype');
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, p,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button, select, option {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: 'Noto Sans Korean', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+}
+/* HTML5 display-role reset for older browsers */
+
+html, body {width:100%; min-height:100%; font-size: 16px;  }
+html, body * { letter-spacing: -0.025em; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, header, footer {display: block;}
+body {line-height: 1.4; color:#252525; }
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: ''; content: none;}
+sub { font-size: 0.875em; }
+table {border-collapse: collapse; border-spacing: 0;}
+strong { font-weight: 500; }
+
+.Hidden, .blind {position:absolute; width:1px; height:1px; margin:0; padding:0; background:none; font-size:0px; color:transparent; line-height:0; left:-9999px; top:-9999px; overflow:hidden;}
+.Dis_none {display:none; position:absolute; width:1px; height:1px; margin:0; padding:0; background:none; font-size:0px; color:transparent; line-height:0; left:-9999px; top:-9999px; overflow:hidden;}
+caption {overflow:hidden;width:1px;height:1px;padding:0;margin-top:-1px;font-size:0;line-height:0;text-indent:-9999px; overflow: hidden;}
+button { background: none; cursor: pointer; line-height: inherit; }
+button:focus { outline: none; }
+input:focus { outline: none; }
+
+a { text-decoration:none; color:#333333; cursor:pointer;}
+
